@@ -364,7 +364,8 @@ export class MarkerArea {
             this.contentDiv.clientHeight) /
           2,
       });
-      this.resize(this.editorCanvas.clientWidth, this.editorCanvas.clientHeight)
+   this.scaleZoomMarker()
+
     }
   }
 
@@ -714,7 +715,12 @@ export class MarkerArea {
     this.overlayContainer.style.height = `${this.imageHeight}px`;
     this.setTopLeft();
     this.positionMarkerImage();
-
+    if (this.settings.displayMode !== 'popup') {
+      this.coverDiv.style.width = `${this.imageWidth.toString()}px`;
+    } else {
+      this.setTopLeft();
+      this.positionMarkerImage();
+    }
 
     if (this.toolbar !== undefined) {
       this.toolbar.adjustLayout();
@@ -1795,6 +1801,20 @@ export class MarkerArea {
   }
 
   private _previousCurrentMarker?: MarkerBase;
+  private scaleZoomMarker(): void{
+    if (this._zoomLevel === 1){
+      const  x= 1-(parseInt(this.editingTarget.getAttribute("data-zoom-width")) / this.imageWidth)
+      const y = 1-0.999
+      this.scaleMarkers(1+x,1);
+     }
+    if(this._zoomLevel===2){
+       this.editingTarget.setAttribute("data-zoom-width", this.editingTarget.clientWidth.toString())
+      const scaleX =  this.editingTarget.clientWidth / this.imageWidth;
+      const scaleY =   this.editingTarget.clientHeight / this.imageHeight;       
+      this.scaleMarkers(scaleX, scaleY);
+    }
+   return 
+  } 
 
   /**
    * Focuses the MarkerArea to receive all input from the window.
