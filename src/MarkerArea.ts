@@ -785,6 +785,7 @@ export class MarkerArea {
     this.markerImage.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
     this.markerImage.setAttribute('width', this.imageWidth.toString());
     this.markerImage.setAttribute('height', this.imageHeight.toString());
+    this.markerImage.setAttribute('data-id', 'marker-container');
     this.markerImage.setAttribute(
       'viewBox',
       '0 0 ' + this.imageWidth.toString() + ' ' + this.imageHeight.toString()
