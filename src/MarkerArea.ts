@@ -998,7 +998,9 @@ export class MarkerArea {
 
     this.uiDiv = document.createElement('div');
     this.uiDiv.style.display = 'flex';
+    this.uiDiv.style.position='relative';
     this.uiDiv.style.flexDirection = 'column';
+    this.uiDiv.style.top= '40px'
     this.uiDiv.style.flexGrow = '2';
     this.uiDiv.style.margin =
       this.settings.displayMode === 'popup'
@@ -1153,7 +1155,11 @@ export class MarkerArea {
           break;
         }
         case 'zoom-out': {
-          this.zoomLevel = 1;
+          // const zoomStepIndex = this.zoomSteps.indexOf(this.zoomLevel);
+         if(this.zoomLevel >1){
+          this.zoomLevel = this.zoomLevel -1
+         }
+          
           break;
         }
         case 'notes': {
@@ -1805,7 +1811,6 @@ export class MarkerArea {
   private scaleZoomMarker(): void{
     if (this._zoomLevel === 1){
       const  x= 1-(parseInt(this.editingTarget.getAttribute("data-zoom-width")) / this.imageWidth)
-      const y = 1-0.999
       this.scaleMarkers(1+x,1);
      }
     if(this._zoomLevel===2){

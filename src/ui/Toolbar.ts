@@ -354,12 +354,14 @@ export class Toolbar {
       new StyleClass(
         'toolbar',
         `
-      width: 100%;
+      width: 6%;
+      position: absolute;
+      left: -3vw;
       flex-shrink: 0;
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;      
-      height: ${this.uiStyleSettings.toolbarHeight}px;
+      flex-direction: column;
+      align-items: center;    
+      height: 37vh;
       box-sizing: content-box;
       ${
         this.displayMode === 'inline'
@@ -394,7 +396,8 @@ export class Toolbar {
       new StyleClass(
         'toolbar-block',
         `
-        display: inline-block;
+        display: flex;
+        flex-direction: column;
         box-sizing: content-box;
     `
       )

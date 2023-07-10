@@ -1,6 +1,6 @@
 {
-  "name": "markerjs2",
-  "version": "2.29.4",
+  "name": "@seetrue/markerjs",
+  "version": "2.29.5",
   "description": "JavaScript image annotation",
   "main": "markerjs2.js",
   "module": "markerjs2.esm.js",
@@ -12,10 +12,6 @@
     "build": "yarn lint && rollup --config rollup.config.prod.js",
     "start": "rollup --config rollup.config.dev.js -w",
     "docs": "typedoc --excludePrivate --excludeExternals --exclude \"src/index.ts\" -mode file --out docs src --name \"marker.js 2 Class Reference\" --disableSources --readme none"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ailon/markerjs2"
   },
   "keywords": [
     "annotate",
