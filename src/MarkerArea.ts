@@ -1,7 +1,8 @@
 import { SvgHelper } from './core/SvgHelper';
 import { Activator } from './core/Activator';
 import { Renderer } from './core/Renderer';
-
+import tippy from 'tippy.js';
+import 'tippy.js/dist/tippy.css';
 import Logo from './assets/markerjs-logo-m.svg';
 import { MarkerBase } from './core/MarkerBase';
 import { Toolbar, ToolbarButtonType } from './ui/Toolbar';
@@ -491,6 +492,7 @@ export class MarkerArea {
     this.eventListeners['show'].forEach((listener) =>
       listener(new MarkerAreaEvent(this))
     );
+    tippy('[data-tippy-content]');
   }
 
   /**

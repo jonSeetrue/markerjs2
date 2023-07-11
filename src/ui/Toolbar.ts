@@ -155,6 +155,7 @@ export class Toolbar {
         const buttonContainer = document.createElement('div');
         buttonContainer.className = `${this.toolbarButtonStyleClass.name}`;
         buttonContainer.setAttribute('data-type-name', mi.typeName);
+        buttonContainer.setAttribute('data-tippy-content', mi.typeName);
         //  ${
         //   this.uiStyleSettings.toolbarButtonStyleColorsClassName ?
         //   this.uiStyleSettings.toolbarButtonStyleColorsClassName : this.toolbarButtonStyleColorsClass.name}`;
@@ -320,6 +321,7 @@ export class Toolbar {
     //   this.uiStyleSettings.toolbarButtonStyleColorsClassName : this.toolbarButtonStyleColorsClass.name}`;
     actionButton.innerHTML = icon;
     actionButton.setAttribute('data-action', value);
+    actionButton.setAttribute('data-tippy-content', value)
     actionButton.addEventListener('click', () => {
       this.actionToolbarButtonClicked(actionButton, value);
     });
